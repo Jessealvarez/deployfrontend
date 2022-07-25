@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Routes>
-          <route
+          <Route
             index
             element={
               <HomePage
