@@ -4,6 +4,7 @@ import { Routes, Route, Router } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import { useState } from "react";
 
+const urlEndpoint = "https://deploybackend123.herokuapp.com/";
 function App() {
   const [clientMessage, setClientMessage] = useState("");
   const [serverMessage, setServerMessage] = useState("");
@@ -29,6 +30,7 @@ function App() {
                 clientMessage={clientMessage}
                 setClientMessage={setClientMessage}
                 serverMessage={serverMessage}
+                sendReceiveMessage={sendReceiveMessage}
               />
             }
           />

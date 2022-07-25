@@ -1,14 +1,19 @@
 import React from "react";
 import App from "../App";
 
-const HomePage = ({ clientMessage, serverMessage, setClientMessage }) => {
+const HomePage = ({
+  clientMessage,
+  serverMessage,
+  setClientMessage,
+  sendReceiveMessage,
+}) => {
   return (
     <div>
       <p>{clientMessage}</p>
       <p>{serverMessage}</p>
       <input
         type="text"
-        onChange={() => {
+        onChange={(e) => {
           const dateTime = new Date();
           const message = `Message: ${
             e.target.value
@@ -18,7 +23,7 @@ const HomePage = ({ clientMessage, serverMessage, setClientMessage }) => {
       />
       <button
         onClick={() => {
-          sendReceiveMessage(message);
+          sendReceiveMessage();
         }}
       >
         Send
