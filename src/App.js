@@ -19,7 +19,7 @@ function App() {
       body: JSON.stringify({ clientMessage }),
     });
     const responseJSON = await response.json();
-    setServerMessage(responseJSON);
+    setServerMessage(responseJSON.serverMessage);
   };
   return (
     <div className="App">
