@@ -4,7 +4,7 @@ import { Routes, Route, Router } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import { useState } from "react";
 
-const urlEndpoint = "https://deploybackend123.herokuapp.com/";
+const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 function App() {
   const [clientMessage, setClientMessage] = useState("");
   const [serverMessage, setServerMessage] = useState("");
