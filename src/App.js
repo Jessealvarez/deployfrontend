@@ -13,7 +13,9 @@ function App() {
     const url = `${urlEndpoint}/post-message`;
     const response = await fetch(url, {
       method: "POST",
-
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ clientMessage }),
     });
     const responseJSON = await response.json();
