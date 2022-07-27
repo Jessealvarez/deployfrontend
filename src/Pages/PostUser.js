@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const PostUser = (props) => {
   const [firstName, setFirstName] = useState("");
@@ -8,15 +8,29 @@ const PostUser = (props) => {
   return (
     <div>
       <h1>Post User</h1>
-      <input type="text" onChange={(event) => setFirstName(event.target.value)}>
-        {firstName}
-      </input>
-      <input type="text" onChange={(event) => setLastName(event.target.value)}>
-        {lastName}
-      </input>
-      <input type="text" onChange={(event) => setEmail(event.target.value)}>
-        {email}
-      </input>
+      <input
+        type="text"
+        placeholder="First Name"
+        onChange={(event) => setFirstName(event.target.value)}
+      />
+      {/* {firstName}
+      </input> */}
+
+      <input
+        type="text"
+        placeholder="Last Name"
+        onChange={(event) => setLastName(event.target.value)}
+      />
+      {/* {lastName}
+      </input> */}
+
+      <input
+        type="text"
+        placeholder="Email"
+        onChange={(event) => setEmail(event.target.value)}
+      />
+      {/* {email}
+      </input> */}
 
       <button
         onClick={() => {
@@ -25,6 +39,7 @@ const PostUser = (props) => {
             lastName,
             email,
           });
+          console.log("firstname" + firstName);
         }}
       >
         Submit
