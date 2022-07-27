@@ -1,11 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Routes, Route, Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 
 import { useState, useEffect } from "react";
 import PostUser from "./Pages/PostUser";
-
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 
@@ -37,7 +35,6 @@ function App() {
     fetchData();
   }, []);
 
-
   const postUserData = async (userData) => {
     const url = `${urlEndpoint}/post-user`;
     const response = await fetch(url, {
@@ -49,8 +46,7 @@ function App() {
     });
     const responseJSON = await response.json();
     setServerMessage(responseJSON.serverMessage);
-  }
-
+  };
 
   return (
     <div className="App">
@@ -70,7 +66,7 @@ function App() {
             }
           />
           <Route
-            path='/post-user'
+            path="/post-user"
             element={<PostUser postUserData={postUserData} />}
           ></Route>
         </Routes>
