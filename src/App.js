@@ -2,13 +2,17 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route, Router } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import PostUser from "./Pages/PostUser";
 
+
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
+
 function App() {
   const [clientMessage, setClientMessage] = useState("");
   const [serverMessage, setServerMessage] = useState("");
+  const [userList, setUserList] = useState([]);
 
   const sendReceiveMessage = async () => {
     const url = `${urlEndpoint}/post-message`;
@@ -23,6 +27,17 @@ function App() {
     setServerMessage(responseJSON.serverMessage);
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const apiResponse = await fetch(`${urlEndpoint}/get-users`);
+      const json = await apiResponse.json();
+      setUserList(json);
+      return json;
+    };
+    fetchData();
+  }, []);
+
+
   const postUserData = async (userData) => {
     const url = `${urlEndpoint}/post-user`;
     const response = await fetch(url, {
@@ -36,6 +51,7 @@ function App() {
     setServerMessage(responseJSON.serverMessage);
   }
 
+
   return (
     <div className="App">
       <header className="App-header">
@@ -48,6 +64,8 @@ function App() {
                 setClientMessage={setClientMessage}
                 serverMessage={serverMessage}
                 sendReceiveMessage={sendReceiveMessage}
+                userList={userList}
+                setUserList={setUserList}
               />
             }
           />
