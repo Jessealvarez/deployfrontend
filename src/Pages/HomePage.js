@@ -30,7 +30,7 @@ const HomePage = ({
         Send
       </button>
       {userList.map((user, idx) => (
-        <div className="users">
+        <div className="users" key={idx}>
           <strong>{user.id}</strong>
           <p>{user.firstName}</p>
           <p>{user.lastName}</p>

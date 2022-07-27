@@ -36,13 +36,13 @@ function App() {
   }, []);
 
   const postUserData = async (userData) => {
-    const url = `${urlEndpoint}/post-user`;
+    const url = `${urlEndpoint}/create-user`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userData }),
+      body: JSON.stringify(userData),
     });
     const responseJSON = await response.json();
     setServerMessage(responseJSON.serverMessage);
